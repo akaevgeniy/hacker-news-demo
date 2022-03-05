@@ -34,7 +34,7 @@ function App() {
             <MainPage items={items} unixTimeConvert={unixTimeConvert} />
           </Route>
           <Route path="/:id">
-            <StoryPage />
+            <StoryPage items={items} unixTimeConvert={unixTimeConvert} />
           </Route>
           <Route path="*">
             <p>Not found</p>
