@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { getNewStories } from './utils/api';
+import { getNewStories } from '../utils/api';
 
 function App() {
   const [items, setItems] = useState();
