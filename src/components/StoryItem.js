@@ -1,17 +1,13 @@
 import React from 'react';
 
-function StoryItem(props) {
+function StoryItem({ data, unixTimeConvert }) {
   return (
     <article className="element">
       <div className="element__text">
-        <h1>News</h1>
-        <p>date</p>
-        <p>by</p>
-      </div>
-      <div className="element__comment">
-        {' '}
-        <p>Total comments: 0</p>
-        <div className="element__comments-three"></div>
+        <h1>{data.title}</h1>
+        <p>{data.by}</p>
+        <p>{data.score}</p>
+        <p>{unixTimeConvert(data.time)}</p>
       </div>
     </article>
   );

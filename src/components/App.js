@@ -1,9 +1,12 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { getNewStories } from '../utils/api';
+import MainPage from './MainPage';
+import StoryPage from './/StoryPage';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
-  const [items, setItems] = useState();
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     getNewStories().then((res) => setItems(res));
@@ -20,30 +23,25 @@ function App() {
   }
 
   //getStories(story[0]);
-  console.log(items);
-  // console.log(story);
+
   //Math.round(new Date().item.data.time/1000.0)
   // const listItems = story ? story.map((element) => <li key={element}>{element}</li>) : '';
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hacker News</h1>
-        <section>
-          <ul>
-            {items
-              ? items.map((item) => (
-                  <li key={item.data.id}>
-                    {item.data.title}
-                    <p>{item.data.by}</p>
-                    <p>{item.data.score}</p>
-                    <p>{unixTimeConvert(item.data.time)}</p>
-                  </li>
-                ))
-              : ''}
-          </ul>
-        </section>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <MainPage items={items} unixTimeConvert={unixTimeConvert} />
+          </Route>
+          <Route path="/:id">
+            <StoryPage />
+          </Route>
+          <Route path="*">
+            <p>Not found</p>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
