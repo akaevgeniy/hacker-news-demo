@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StoryItem({ id, data, unixTimeConvert }) {
+function StoryItem({ data, unixTimeConvert }) {
   return (
     <article className="element">
       <div className="element__text">

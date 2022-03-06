@@ -12,6 +12,15 @@ function App() {
     getNewStories().then((res) => setItems(res));
   }, []);
 
+  useEffect(() => {
+    setItems(JSON.parse(window.localStorage.getItem('items')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
+
+  console.log(items);
   function unixTimeConvert(time) {
     const datePost = new Date(time * 1000);
     const res = `${datePost.getDate().toString()}/${(
