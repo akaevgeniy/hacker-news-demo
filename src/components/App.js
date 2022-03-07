@@ -9,9 +9,13 @@ import { Container } from 'react-bootstrap';
 
 function App() {
   const [items, setItems] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    getNewStories().then((res) => setItems(res));
+    getNewStories()
+      .then((res) => setItems(res))
+      .catch((err) => console.log(err))
+      .finally(() => setLoader(true));
   }, []);
 
   useEffect(() => {
@@ -32,7 +36,7 @@ function App() {
       .toString()}:${datePost.getMinutes().toString()}`;
     return res;
   }
-
+  console.log(loader);
   //getStories(story[0]);
 
   //Math.round(new Date().item.data.time/1000.0)
@@ -44,7 +48,11 @@ function App() {
           <Header />
           <Switch>
             <Route exact path="/">
-              <MainPage items={items} unixTimeConvert={unixTimeConvert} />
+              <MainPage
+                loader={loader}
+                items={items}
+                unixTimeConvert={unixTimeConvert}
+              />
             </Route>
             <Route path="/:id">
               <StoryPage items={items} unixTimeConvert={unixTimeConvert} />
