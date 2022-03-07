@@ -1,12 +1,17 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-function StoryItem({ data, unixTimeConvert }) {
+function StoryItem({ num, data, unixTimeConvert }) {
   return (
     <article className="">
-      <div className="">
+      <div className="shadow p-3 mb-5 bg-body rounded color-black text-dark">
         <Row className="">
-          <h3>{data.title}</h3>
+          <Col
+            md="10"
+            className="d-flex justify-content-start align-items-start"
+          >
+            {num}.<h2 className="ms-2 fs-4">{data.title}</h2>
+          </Col>
         </Row>
         <Row>
           <Col md="3">

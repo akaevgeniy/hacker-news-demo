@@ -15,7 +15,7 @@ function MainPage({ items, unixTimeConvert }) {
             >
               <Image
                 src="https://upload.wikimedia.org/wikipedia/en/b/bf/Hackernews_logo.png"
-                height={30}
+                height={25}
                 className="me-2"
               />
               <h1>HACKER NEWS demo</h1>
@@ -26,7 +26,7 @@ function MainPage({ items, unixTimeConvert }) {
         <Row>
           {' '}
           {items.length !== 0
-            ? items.map((elem) => (
+            ? items.map((elem, i) => (
                 <Col key={elem.data.id} md="10">
                   {' '}
                   <Link
@@ -35,6 +35,7 @@ function MainPage({ items, unixTimeConvert }) {
                     key={elem.data.id}
                   >
                     <StoryItem
+                      num={i + 1}
                       data={elem.data}
                       unixTimeConvert={unixTimeConvert}
                     />
