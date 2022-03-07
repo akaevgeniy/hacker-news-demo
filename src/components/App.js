@@ -1,9 +1,9 @@
-import './App.css';
 import { useEffect, useState } from 'react';
 import { getNewStories } from '../utils/api';
 import MainPage from './MainPage';
 import StoryPage from './/StoryPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [items, setItems] = useState([]);
