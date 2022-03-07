@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { getNewStories } from '../utils/api';
 import MainPage from './MainPage';
-import StoryPage from './/StoryPage';
+import StoryPage from './StoryPage';
+import Header from './Header';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -38,17 +40,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Switch>
-          <Route exact path="/">
-            <MainPage items={items} unixTimeConvert={unixTimeConvert} />
-          </Route>
-          <Route path="/:id">
-            <StoryPage items={items} unixTimeConvert={unixTimeConvert} />
-          </Route>
-          <Route path="*">
-            <p>Not found</p>
-          </Route>
-        </Switch>
+        <Container>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <MainPage items={items} unixTimeConvert={unixTimeConvert} />
+            </Route>
+            <Route path="/:id">
+              <StoryPage items={items} unixTimeConvert={unixTimeConvert} />
+            </Route>
+            <Route path="*">
+              <p>Not found</p>
+            </Route>
+          </Switch>
+        </Container>
       </div>
     </BrowserRouter>
   );
