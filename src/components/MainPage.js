@@ -1,6 +1,6 @@
 import StoryItem from './StoryItem';
 import { Link } from 'react-router-dom';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 function MainPage({ items, unixTimeConvert }) {
   console.log(items.length);

@@ -3,7 +3,7 @@ import { Col, Row, Image } from 'react-bootstrap';
 
 function Header() {
   return (
-    <header className="my-5 sticky-top bg-white">
+    <header className="py-5 sticky-top bg-white">
       <Row>
         <Col
           md="10"
