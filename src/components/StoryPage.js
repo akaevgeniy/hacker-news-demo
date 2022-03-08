@@ -7,6 +7,7 @@ import Comment from './Comment';
 function StoryPage({ items, unixTimeConvert }) {
   const [comments, setComments] = useState([]);
   const [story, setStory] = useState();
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     getCommentsToObj(window.location.pathname.slice(1));
@@ -18,7 +19,8 @@ function StoryPage({ items, unixTimeConvert }) {
 
     await getComments(id)
       .then((res) => setComments(res.data.children))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoader(true));
   }
 
   const history = useHistory();
@@ -40,12 +42,12 @@ function StoryPage({ items, unixTimeConvert }) {
           {items.length !== 0 && comments.length !== 0 ? comments.length : '0'}
         </p>
         <div>
-          {items.length !== 0 && comments.length !== 0 ? (
+          {!loader ? (
+            <Spinner animation="border" role="status"></Spinner>
+          ) : comments.length !== 0 ? (
             comments.map((kid, i) => <Comment key={kid.id} comment={kid} />)
           ) : (
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
+            <p className="ms-4">No comments on the news...</p>
           )}
         </div>
       </Row>
