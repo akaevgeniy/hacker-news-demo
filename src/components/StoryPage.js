@@ -26,20 +26,32 @@ function StoryPage({ items, unixTimeConvert }) {
   const history = useHistory();
   console.log(comments);
   return (
-    <Container className="">
-      <Row className="">
-        <h1>{items.length !== 0 && story ? story.data.title : ''}</h1>
-        <p>by: {items.length !== 0 && story ? story.data.by : ''}</p>
-        <p>URL: {items.length !== 0 && story ? story.data.url : ''}</p>
+    <Container>
+      <Row>
+        <h1 className="mb-4">
+          {items.length !== 0 && story ? story.data.title : ''}
+        </h1>
         <p>
-          Date:{' '}
+          <span className="fw-bold">by: </span>
+          {items.length !== 0 && story ? story.data.by : ''}
+        </p>
+        <p>
+          <span className="fw-bold">URL: </span>{' '}
+          {items.length !== 0 && story ? story.data.url : ''}
+        </p>
+        <p>
+          <span className="fw-bold">Date: </span>{' '}
           {items.length !== 0 && story ? unixTimeConvert(story.data.time) : ''}
         </p>
       </Row>
-      <Row className="">
-        <p>
+      <Row className="mt-3">
+        <p className="fw-bold">
           Total comments:{' '}
-          {items.length !== 0 && comments.length !== 0 ? comments.length : '0'}
+          <span className="fw-normal">
+            {items.length !== 0 && comments.length !== 0
+              ? comments.length
+              : '0'}
+          </span>
         </p>
         <div>
           {!loader ? (
