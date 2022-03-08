@@ -6,7 +6,10 @@ function StoryItem({ num, data, unixTimeConvert }) {
     <article className="shadow p-3 mb-3 bg-body rounded color-black text-dark">
       <Row className="">
         <Col md="10" className="d-flex justify-content-start align-items-start">
-          {num}.<h2 className="ms-2 fs-4">{data.title}</h2>
+          {num}.
+          <h2 className="ms-2 fs-4 bg-warning p-2 text-dark bg-opacity-25">
+            {data.title}
+          </h2>
         </Col>
       </Row>
       <Row className="d-flex justify-content-start align-items-start">
