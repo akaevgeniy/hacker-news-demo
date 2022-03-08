@@ -24,7 +24,7 @@ function StoryPage({ items, unixTimeConvert }) {
   }
 
   const history = useHistory();
-  console.log(comments);
+
   return (
     <Container>
       <Row>
