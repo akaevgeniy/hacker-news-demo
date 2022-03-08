@@ -10,6 +10,17 @@ export const getStory = async (id) => {
   }
 };
 
+export const getComments = async (id) => {
+  try {
+    const comments = await axios.get(
+      `http://hn.algolia.com/api/v1/items/${id}`
+    );
+    return comments;
+  } catch (error) {
+    console.log('Ошибка отображения комментариев - ', error.status);
+  }
+};
+
 export const getNewStories = async () => {
   try {
     const { data: storyIds } = await axios.get(

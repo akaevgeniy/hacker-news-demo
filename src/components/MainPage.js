@@ -1,9 +1,9 @@
 import StoryItem from './StoryItem';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Row, Spinner } from 'react-bootstrap';
 
 function MainPage({ loader, items, unixTimeConvert }) {
-  console.log(items.length);
   return (
     <>
       <Row>
@@ -36,5 +36,5 @@ function MainPage({ loader, items, unixTimeConvert }) {
     </>
   );
 }
-
+MainPage = React.memo(MainPage);
 export default MainPage;

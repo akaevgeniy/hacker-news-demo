@@ -26,7 +26,6 @@ function App() {
     window.localStorage.setItem('items', JSON.stringify(items));
   }, [items]);
 
-  console.log(items);
   function unixTimeConvert(time) {
     const datePost = new Date(time * 1000);
     const res = `${datePost.getDate().toString()}/${(
@@ -36,11 +35,6 @@ function App() {
       .toString()}:${datePost.getMinutes().toString()}`;
     return res;
   }
-  console.log(loader);
-  //getStories(story[0]);
-
-  //Math.round(new Date().item.data.time/1000.0)
-  // const listItems = story ? story.map((element) => <li key={element}>{element}</li>) : '';
   return (
     <BrowserRouter>
       <div className="App">
