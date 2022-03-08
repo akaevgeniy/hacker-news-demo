@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
+import { Markup } from 'interweave';
 
 function Comment({ comment }) {
   const nestedComments = (comment.children || []).map((comment) => {
@@ -7,9 +8,11 @@ function Comment({ comment }) {
   });
 
   return (
-    <div className="ms-4 mt-3">
-      <Row className="fw-bold">{comment.author}</Row>
-      <Row>{comment.text}</Row>
+    <div className="ms-4 mt-2">
+      <Row className="fw-bold ms-1">{comment.author}</Row>
+      <Row className="p-0">
+        <Markup content={comment.text} />
+      </Row>
       {nestedComments}
     </div>
   );
