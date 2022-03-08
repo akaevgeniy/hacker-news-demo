@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL } from './constants';
+import { BASE_URL, BASE_URL_KIDS } from './constants';
 
 export const getStory = async (id) => {
   try {
@@ -12,9 +12,7 @@ export const getStory = async (id) => {
 
 export const getComments = async (id) => {
   try {
-    const comments = await axios.get(
-      `http://hn.algolia.com/api/v1/items/${id}`
-    );
+    const comments = await axios.get(`${BASE_URL_KIDS}/${id}`);
     return comments;
   } catch (error) {
     console.log('Ошибка отображения комментариев - ', error.status);
