@@ -1,4 +1,4 @@
-import { Col, Container, Row, Button, Spinner } from 'react-bootstrap';
+import { Container, Row, Button, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { getComments } from '../utils/api';
 import { useEffect, useState } from 'react';
@@ -36,8 +36,16 @@ function StoryPage({ items, unixTimeConvert }) {
           {items.length !== 0 && story ? story.data.by : ''}
         </p>
         <p>
-          <span className="fw-bold">URL: </span>{' '}
-          {items.length !== 0 && story ? story.data.url : ''}
+          <span className="fw-bold">URL: </span>
+          <a
+            href={items.length !== 0 && story ? story.data.url : ''}
+            target="_blank"
+            rel="noreferrer"
+            className="link-primary"
+          >
+            {' '}
+            {items.length !== 0 && story ? story.data.url : ''}
+          </a>
         </p>
         <p>
           <span className="fw-bold">Date: </span>{' '}
