@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -9,11 +10,14 @@ function Header() {
           md="10"
           className="d-flex justify-content-start align-items-center"
         >
-          <Image
-            src="https://upload.wikimedia.org/wikipedia/en/b/bf/Hackernews_logo.png"
-            height={25}
-            className="me-2"
-          />
+          <Link to="/">
+            <Image
+              src="https://upload.wikimedia.org/wikipedia/en/b/bf/Hackernews_logo.png"
+              height={25}
+              className="me-2"
+            />
+          </Link>
+
           <h1>HACKER NEWS demo</h1>
         </Col>
       </Row>
